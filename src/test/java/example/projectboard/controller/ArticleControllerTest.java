@@ -11,7 +11,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @DisplayName("View Controller - 게시글")
-@WebMvcTest(ArticleControllerTest.class)
+@WebMvcTest(ArticleController.class)
 class ArticleControllerTest {
 
     private final MockMvc mvc;
@@ -28,7 +28,7 @@ class ArticleControllerTest {
         // When & Then
         mvc.perform(get("/articles"))
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.TEXT_HTML))
+                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
                 .andExpect(model().attributeExists("articles"));
     }
 
