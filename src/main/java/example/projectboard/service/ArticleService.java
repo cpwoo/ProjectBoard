@@ -23,7 +23,7 @@ public class ArticleService {
     }
 
     @Transactional(readOnly = true)
-    public ArticleWithCommentsDto searchArticle(long l) {
+    public ArticleWithCommentsDto getArticle(Long articleId) {
         return null;
     }
 
