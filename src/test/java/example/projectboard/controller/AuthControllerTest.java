@@ -16,7 +16,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @DisplayName("View Controller - 인증")
 @Import(SecurityConfig.class)
 @WebMvcTest(Void.class)
-public class AuthControllerTest {
+class AuthControllerTest {
 
     private final MockMvc mvc;
 
