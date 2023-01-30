@@ -2,7 +2,6 @@ package example.projectboard.controller;
 
 import example.projectboard.domain.constant.FormStatus;
 import example.projectboard.domain.constant.SearchType;
-import example.projectboard.dto.UserAccountDto;
 import example.projectboard.dto.request.ArticleRequest;
 import example.projectboard.dto.response.ArticleResponse;
 import example.projectboard.dto.response.ArticleWithCommentsResponse;
@@ -113,7 +112,7 @@ public class ArticleController {
         return "redirect:/articles/" + articleId;
     }
 
-    @PostMapping ("/{articleId}/delete")
+    @PostMapping("/{articleId}/delete")
     public String deleteArticle(
             @PathVariable Long articleId,
             @AuthenticationPrincipal BoardPrincipal boardPrincipal
