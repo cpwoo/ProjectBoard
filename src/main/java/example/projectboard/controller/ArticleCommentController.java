@@ -1,6 +1,5 @@
 package example.projectboard.controller;
 
-import example.projectboard.dto.UserAccountDto;
 import example.projectboard.dto.request.ArticleCommentRequest;
 import example.projectboard.dto.security.BoardPrincipal;
 import example.projectboard.service.ArticleCommentService;
@@ -18,7 +17,7 @@ public class ArticleCommentController {
 
     private final ArticleCommentService articleCommentService;
 
-    @PostMapping ("/new")
+    @PostMapping("/new")
     public String postNewArticleComment(
             @AuthenticationPrincipal BoardPrincipal boardPrincipal,
             ArticleCommentRequest articleCommentRequest
@@ -28,7 +27,7 @@ public class ArticleCommentController {
         return "redirect:/articles/" + articleCommentRequest.articleId();
     }
 
-    @PostMapping ("/{commentId}/delete")
+    @PostMapping("/{commentId}/delete")
     public String deleteArticleComment(
             @PathVariable Long commentId,
             Long articleId,

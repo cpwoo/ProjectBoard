@@ -1,6 +1,5 @@
 package example.projectboard.repository;
 
-import example.projectboard.config.JpaConfig;
 import example.projectboard.domain.Article;
 import example.projectboard.domain.UserAccount;
 import org.junit.jupiter.api.DisplayName;
@@ -16,12 +15,12 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import java.util.List;
 import java.util.Optional;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @DisplayName("JPA 연결 테스트")
 @Import(JpaRepositoryTest.TestJpaConfig.class)
 @DataJpaTest
-public class JpaRepositoryTest {
+class JpaRepositoryTest {
 
     private final ArticleRepository articleRepository;
     private final ArticleCommentRepository articleCommentRepository;
