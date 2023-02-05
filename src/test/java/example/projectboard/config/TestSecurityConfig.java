@@ -1,7 +1,7 @@
 package example.projectboard.config;
 
-import example.projectboard.domain.UserAccount;
-import example.projectboard.repository.UserAccountRepository;
+import example.projectboard.dto.UserAccountDto;
+import example.projectboard.service.UserAccountService;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.event.annotation.BeforeTestMethod;
@@ -14,17 +14,24 @@ import static org.mockito.BDDMockito.given;
 @Import(SecurityConfig.class)
 public class TestSecurityConfig {
 
-    @MockBean private UserAccountRepository userAccountRepository;
+    @MockBean private UserAccountService userAccountService;
 
     @BeforeTestMethod
     public void securitySetup() {
-        given(userAccountRepository.findById(anyString())).willReturn(Optional.of(UserAccount.of(
+        given(userAccountService.searchUser(anyString()))
+                .willReturn(Optional.of(createUserAccountDto()));
+        given(userAccountService.saveUser(anyString(), anyString(), anyString(), anyString(), anyString()))
+                .willReturn(createUserAccountDto());
+    }
+
+    private UserAccountDto createUserAccountDto() {
+        return UserAccountDto.of(
                 "steveTest",
                 "pw",
                 "steve-test@gmail.com",
                 "steve-test",
                 "steve memo"
-        )));
+        );
     }
 
 }
